@@ -1,0 +1,44 @@
+﻿@model NDKFastfood.Models.ChiTietDatHang
+
+@{
+    ViewBag.Title = "ChiTietDH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold">Chi tiết đơn hàng</h2>
+
+<div style="padding-left:70px">
+    <dl class="dl-horizontal">
+        <dt>
+            Mã đơn hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDonHang)
+        </dd>
+        <dt>
+            Tên món
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MonAn.TenMon)
+        </dd>
+        <dt>
+            Số lượng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+        <dt>
+            Đơn giá:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("DonDatHang","Admin")"><i class="fa fa-arrow-left"> Trở lại</i></a>
+</div>

@@ -1,0 +1,54 @@
+﻿@model NDKFastfood.Models.MonAn
+
+@{
+    ViewBag.Title = "ChiTietMonAn";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold">Chi tiết món ăn</h2>
+
+<div style="padding-left:70px">
+    <dl class="dl-horizontal">
+        <dt>
+            Tên món:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenMon)
+        </dd>
+        <dt>
+            Đơn giá:
+        </dt>
+        <dd>
+            @String.Format("{0:0,0}", Model.GiaBan) VNĐ
+        </dd>
+        <dt>
+            Mô tả:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+        <dt>
+            Ảnh đại diện:
+        </dt>
+        <dd>
+            <img src="@Url.Content("~/Assets/Images/"+Model.AnhDD)" width="25%" />
+        </dd>
+        <dt>
+            Số lượng tồn:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+        <dt>
+            Loại:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loai.TenLoai)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("MonAn","Admin")"><i class="fa fa-arrow-left"> Trở lại</i></a>
+    <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("SuaMonAn","Admin", new { id = Model.MaMon })"><i class="fa fa-edit"> Chỉnh sửa</i></a>
+</div>
+

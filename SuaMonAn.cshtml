@@ -1,0 +1,69 @@
+﻿@model NDKFastfood.Models.MonAn
+
+@{
+    ViewBag.Title = "SuaMonAn";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold">Điều chỉnh thông tin món ăn</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaMon)
+        <div class="form-group">
+            <div class="row" style="width:100%">
+                <div class="col-md-7">
+                    <h5 style="font-weight:bold;padding-left:120px;padding-bottom:5px">Tên món</h5>
+                    <div class="col-md-6" style="padding-left:120px">
+                        @Html.EditorFor(model => model.TenMon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TenMon, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h5 style="font-weight:bold;padding-left:30px;padding-bottom:5px">Đơn giá</h5>
+                    <div class="col-md-4" style="padding-left: 30px">
+                        @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.GiaBan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row" style="width:100%">
+                <div class="col-md-7">
+                    <h5 style="font-weight:bold;padding-left:120px;padding-bottom:5px">Mô tả</h5>
+                    <div style="padding-left: 120px">
+                        @Html.EditorFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h5 style="font-weight:bold;padding-left:30px;padding-bottom:5px">Số lượng tồn</h5>
+                    <div class="col-md-3" style="padding-left: 30px">
+                        @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row" style="width:100%">
+                <div class="col-md-7">
+                    <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("MonAn","Admin")"><i class="fa fa-arrow-left"> Trở lại</i></a>
+                </div>
+                <div class="col-md-5">
+                    <div class="col-md-offset-2 col-md-10" style="padding-left: 30px">
+                        <button style="font-weight: bold; color: black " type="submit"><i class="fa fa-save"> Lưu</i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

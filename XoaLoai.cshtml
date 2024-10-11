@@ -1,0 +1,36 @@
+﻿@model NDKFastfood.Models.Loai
+
+@{
+    ViewBag.Title = "XoaLoai";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold">Xóa loại</h2>
+
+<div style="padding-left:70px">
+    <dl class="dl-horizontal">
+        <dt>
+            Mã loại:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaLoai)
+        </dd>
+        <dt>
+            Tên loại:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+    </dl>
+</div>
+<div style="padding-left:70px">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button style="font-weight: bold; color: black " type="submit"><i class="fa fa-trash"> Xóa</i></button>
+            <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("MonAn","Admin")"><i class="fa fa-arrow-left"> Trở lại</i></a>
+        </div>
+    }
+</div>

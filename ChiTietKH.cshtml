@@ -1,0 +1,72 @@
+﻿@model NDKFastfood.Models.KhachHang
+
+@{
+    ViewBag.Title = "XoaKH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold">Chi tiết khách hàng</h2>
+
+<div style="padding-left:70px">
+    <dl class="dl-horizontal">
+        <dt>
+            Họ tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            Tài khoản:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+
+        <dt>
+            Mật khẩu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            Email:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Địa chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiKH)
+        </dd>
+
+        <dt>
+            Điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoaiKH)
+        </dd>
+
+        <dt>
+            Ngày sinh:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("KhachHang","Admin")"><i class="fa fa-arrow-left"> Trở lại</i></a>
+    <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("SuaKH","Admin", new { id = Model.MaKH })"><i class="fa fa-edit"> Chỉnh sửa</i></a>
+</div>

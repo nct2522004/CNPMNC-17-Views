@@ -1,0 +1,54 @@
+﻿@model NDKFastfood.Models.Loai
+
+@{
+    ViewBag.Title = "SuaLoai";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold">Điều chỉnh thông tin loại</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaLoai)
+        <div class="form-group">
+            <div class="row" style="width:100%">
+                <div class="col-md-4">
+                    <h5 style="font-weight:bold;padding-left:120px;padding-bottom:5px">Mã loại</h5>
+                    <div class="col-md-2" style="padding-left:120px">
+                        <div style="font:18px; padding: 5px 0 0 5px">@Model.MaLoai</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="width:100%">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <h5 style="font-weight:bold;padding-left:120px;padding-bottom:5px">Tên loại</h5>
+                        <div class="col-md-3" style="padding-left:120px">
+                            @Html.EditorFor(model => model.TenLoai, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenLoai, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row" style="width:100%">
+                <div class="col-md-2">
+                    <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("Loai","Admin")"><i class="fa fa-arrow-left"> Trở lại</i></a>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button style="font-weight: bold; color: black " type="submit"><i class="fa fa-save"> Lưu</i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

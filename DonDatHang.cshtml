@@ -1,0 +1,62 @@
+﻿@using NDKFastfood.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<NDKFastfood.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "DonDatHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold">Quản lý thông tin đơn đặt hàng</h2>
+<br />
+<table align="center" border="2" cellpadding="10">
+    <tr align="center" , style="height:50px">
+        <th style="width:100px;color:red;font-size:20px">Mã đơn hàng</th>
+        <th style="width:100px;color:red;font-size:20px">Mã khách hàng</th>
+        <th style="width:250px;color:red;font-size:20px">Tên khách hàng</th>
+        <th style="width:225px;color:red;font-size:20px">Ngày đặt</th>
+        <th style="width:225px;color:red;font-size:20px">Ngày giao dự kiến</th>
+        <th style="width:150px;color:red;font-size:20px">Tình trạng giao hàng</th>
+        <th style="width:150px;color:red;font-size:20px">Đã thanh toán</th>
+        <th style="width:150px;color:red;font-size:20px">Công cụ</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr align="center" , style="height:50px">
+            <td style="font-weight:bold">
+                @Html.DisplayFor(modelItem => item.MaDonHang)
+            </td>
+            <td style="font-weight:bold">
+                @Html.DisplayFor(modelItem => item.MaKH)
+            </td>
+            <td style="font-weight:bold">
+                @Html.DisplayFor(modelItem => item.KhachHang.HoTen)
+            </td>
+            <td style="font-weight:bold">
+                @Html.DisplayFor(modelItem => item.NgayDat)
+            </td>
+            <td style="font-weight:bold">
+                @Html.DisplayFor(modelItem => item.NgayGiao)
+            </td>
+            <td style="font-weight:bold">
+                @Html.DisplayFor(modelItem => item.TinhTrangGiaohang)
+            </td>
+            <td style="font-weight:bold">
+                @Html.DisplayFor(modelItem => item.DaThanhToan)
+            </td>
+            <td>
+                <a style="font-size:20px;color:black" href="@Url.Action("SuaDDH","Admin", new { id = item.MaDonHang })"><i class="fa fa-edit"> Sửa</i></a>
+                <br />
+                <a style="font-size:20px;color:black" href="@Url.Action("ChiTietDH","Admin", new { id = item.MaDonHang })"><i class="fa fa-info-circle"> Chi tiết</i></a>
+                <br />
+                <a style="font-size:20px;color:black" href="@Url.Action("XoaDDH","Admin", new { id = item.MaKH })"><i class="fa fa-trash"> Xóa</i></a>
+            </td>
+        </tr>
+    }
+</table>
+<div style="padding-left:1375px;font-size:20px;padding-top:10px;font-weight:bold">
+    @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    <div class="product__pagination">
+        @Html.PagedListPager(Model, page => Url.Action("KhachHang", new { page = page }))
+    </div>
+</div>

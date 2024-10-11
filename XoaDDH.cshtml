@@ -1,0 +1,70 @@
+﻿@model NDKFastfood.Models.DonDatHang
+
+@{
+    ViewBag.Title = "XoaDDH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold">Xóa đơn đặt hàng</h2>
+
+<div style="padding-left:70px">
+    <dl class="dl-horizontal">
+        <dt>
+            Mã đơn hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDonHang)
+        </dd>
+        <dt>
+            Mã khách hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKH)
+        </dd>
+        <dt>
+            Tên khách hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.HoTen)
+        </dd>
+        <dt>
+            Ngày đặt
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+        <dt>
+            Ngày giao:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiao)
+        </dd>
+        <dt>
+            Tình trạng giao hàng:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrangGiaohang)
+        </dd>
+        <dt>
+            Đã thanh toán:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DaThanhToan)
+        </dd>
+    </dl>
+    <div style="padding-left:70px">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <button style="font-weight: bold; color: black " type="submit"><i class="fa fa-trash"> Xóa</i></button>
+                <a style="font-weight:bold;color:black;padding-left:120px" href="@Url.Action("DonDatHang","Admin")"><i class="fa fa-arrow-left"> Trở lại</i></a>
+            </div>
+        }
+    </div>
