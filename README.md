@@ -1,9 +1,13 @@
-# CNPMNC-17
+# CNPMNC-Nhóm17
 Nguyễn Chí Thành - 22DH113314 
-Trần Lê Thi             - 22DH113444
-Nguyễn Nhựt Tân  - 22DH113254
-Trần Duy Thắng    - 22DH113408
-Lữ Trung Tín         - 22DH113752
+
+Trần Lê Thi - 22DH113444
+
+Nguyễn Nhựt Tân - 22DH113254
+
+Trần Duy Thắng - 22DH113408
+
+Lữ Trung Tín - 22DH113752
 
 # Giới yêu cầu phần mềm của dự án
 
